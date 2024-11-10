@@ -1,0 +1,3 @@
+project is incomplete nanoid got deprecated 
+
+find new package that generate random character size8 

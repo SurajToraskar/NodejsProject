@@ -10,6 +10,9 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.1",
-    "mongoose": "^8.8.1"
+    "mongoose": "^8.8.1",
+    "nanoid": "^5.0.8",
+    "short-unique-id": "^5.2.0",
+    "shortid": "^2.2.16"
   }
 }
