@@ -8,7 +8,7 @@ const { connectToMongoDB } = require("./connection");
 const URL = require("./models/url");
 const staticRoute = require("./routes/staticRouter");
 const userRoute = require("./routes/user");
-const { restrictToLoggedInUserOnly, checkAuth } = require("./middleware/auth");
+const { checkForAuthentication, restrictTo } = require("./middleware/auth");
 connectToMongoDB("mongodb://127.0.0.1:27017/short-url")
   .then(() => {
     console.log("MongoDB Connected");
@@ -22,9 +22,10 @@ app.set("views", path.resolve("./views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(checkForAuthentication);
 
-app.use("/url", restrictToLoggedInUserOnly, urlRoute);
-app.use("/", checkAuth, staticRoute);
+app.use("/url", restrictTo(["NORMAL", "ADMIN"]), urlRoute);
+app.use("/", staticRoute);
 app.use("/user", userRoute);
 
 app.use("/test", (req, resp) => {
