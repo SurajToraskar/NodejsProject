@@ -19,7 +19,7 @@ function checkForAuthentication(req, resp, next) {
   const user = getUser(token);
   req.user = user;
   return next();
-}
+}f
 
 function restrictTo(roles = []) {
   return function (req, resp, next) {
