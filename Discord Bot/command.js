@@ -15,7 +15,7 @@ const rest = new REST({ version: "10" }).setToken(
   try {
     console.log("Started refreshing application (/) commands.");
 
-    await rest.put(Routes.applicationCommands("1306295387077738638"), {
+    await rest.put(Routes.applicationCommands("TOKEN"), {
       body: commands,
     });
 

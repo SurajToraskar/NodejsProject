@@ -19,6 +19,4 @@ client.on("interactionCreate", (interaction) => {
   interaction.reply("Pong");
 });
 
-client.login(
-  "MTMwNjI5NTM4NzA3NzczODYzOA.GkxVFY.zILhxJdbyyUBJIhs1dSitjdlEVWsgLGcmcPguc"
-);
+client.login("TOKEN");
